@@ -1,7 +1,15 @@
+repeat task.wait() until game:IsLoaded()
+
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+
 local Window = Rayfield:CreateWindow({
-   Name = "+1 Speed Escape Skateboard [OP & FREE]",
+   Name = "🛹 +1 Speed Escape Skateboard [OP & FREE]",
    LoadingTitle = "🎲 L1inb7 Hub",
    LoadingSubtitle = "by L1inb7",
    ConfigurationSaving = {
@@ -11,14 +19,11 @@ local Window = Rayfield:CreateWindow({
    KeySystem = false
 })
 
-local player = game.Players.LocalPlayer
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
 ----------------------------------------------------
 -- MAIN TAB
 ----------------------------------------------------
 
-local MainTab = Window:CreateTab("Main", 4483362458)
+local MainTab = Window:CreateTab("🎲 Main", nil)
 
 Rayfield:Notify({
    Title = "You executed the script",
@@ -37,221 +42,207 @@ MainTab:CreateToggle({
    CurrentValue = false,
    Callback = function(Value)
       autowin = Value
-
-      task.spawn(function()
-         while autowin do
-
-            local args = {
-               [1] = "Free",
-               [2] = Vector3.new(9914.46875, 6.3058, -5766.1577)
-            }
-
-            ReplicatedStorage.Remote.Event.Player.ClaimWins
-            :FireServer(unpack(args))
-
-            task.wait(1)
-
-         end
-      end)
    end,
 })
 
-----------------------------------------------------
--- SKATEBOARD SYSTEM
-----------------------------------------------------
+MainTab:CreateParagraph({
+   Title = "📌 Auto Win Information",
+   Content = "Automatically claims wins.\n\nRequirements:\n• You must be in the game\n• Internet connection must be stable\n\nNotes:\n• Works in the background\n• Can be toggled on/off anytime."
+})
 
-local Skateboards = {
-   "Basic",
-   "Blossom",
-   "Tiger",
-   "Tropical",
-   "Golden",
-   "Snowy",
-   "Blue Ripstick",
-   "Blue Prism",
-   "Rainbow Cloud",
-   "Golden Ripstick",
-   "VIP",
-   "Rover",
-   "Cyber",
-   "Shark",
-   "Bat",
-   "Rocket",
-   "Red Ufo",
-   "Northern Star"
-}
+task.spawn(function()
+   while true do
+      if autowin then
 
-local SelectedBoard = "Basic"
+         local args = {
+            [1] = "Free",
+            [2] = Vector3.new(9914.46875, 6.3058, -5766.1577)
+         }
+
+         ReplicatedStorage.Remote.Event.Player.ClaimWins:FireServer(unpack(args))
+      end
+
+      task.wait(1)
+   end
+end)
+
+----------------------------------------------------
+-- EQUIP SKATEBOARD
+----------------------------------------------------
 
 MainTab:CreateDropdown({
-   Name = "Select Skateboard",
-   Options = Skateboards,
+   Name = "Equip Skateboard",
+   Options = {
+   "Basic","Blossom","Tiger","Tropical","Golden","Snowy",
+   "Blue Ripstick","Blue Prism","Rainbow Cloud","Golden Ripstick",
+   "VIP","Rover","Cyber","Shark","Bat","Rocket","Red Ufo","Northern Star"
+   },
    CurrentOption = {"Basic"},
    MultipleOptions = false,
    Callback = function(Option)
-      SelectedBoard = Option[1]
-   end,
-})
 
-MainTab:CreateButton({
-   Name = "Equip Selected Skateboard",
-   Callback = function()
-
-      ReplicatedStorage.Remote.Event.UI.EquipBoard
-      :FireServer(SelectedBoard)
+      ReplicatedStorage.Remote.Event.UI.EquipBoard:FireServer(Option[1])
 
       Rayfield:Notify({
          Title = "L1inb7 Hub",
-         Content = SelectedBoard.." Equipped!",
+         Content = Option[1].." equipped!",
          Duration = 4
       })
 
    end,
 })
 
+MainTab:CreateParagraph({
+   Title = "📌 Equip Skateboard Information",
+   Content = "Equips the selected skateboard instantly."
+})
+
 ----------------------------------------------------
--- EGG SYSTEM
+-- OPEN EGGS
 ----------------------------------------------------
-
-local EggNames = {
-   ["Egg1 (100)"] = "Egg1",
-   ["Egg2 (500)"] = "Egg2",
-   ["Egg3 (1K)"] = "Egg3",
-   ["Egg4 (10K)"] = "Egg4"
-}
-
-local EggOptions = {
-   "Egg1 (100)",
-   "Egg2 (500)",
-   "Egg3 (1K)",
-   "Egg4 (10K)"
-}
-
-local SelectedEgg = "Egg1"
 
 MainTab:CreateDropdown({
-   Name = "Select Egg",
-   Options = EggOptions,
+   Name = "Open Egg",
+   Options = {
+   "Egg1 (100)","Egg2 (500)","Egg3 (1K)","Egg4 (10K)"
+   },
    CurrentOption = {"Egg1 (100)"},
    MultipleOptions = false,
    Callback = function(Option)
-      SelectedEgg = EggNames[Option[1]]
-   end,
-})
 
-MainTab:CreateButton({
-   Name = "Open Selected Egg",
-   Callback = function()
+      local egg = Option[1]:match("Egg%d")
 
-      ReplicatedStorage.Remote.Function.Eggs.OpenEgg
-      :InvokeServer(SelectedEgg)
+      ReplicatedStorage.Remote.Function.Eggs.OpenEgg:InvokeServer(egg)
 
       Rayfield:Notify({
          Title = "L1inb7 Hub",
-         Content = SelectedEgg.." opened!",
+         Content = egg.." opened!",
          Duration = 4
       })
 
    end,
 })
 
+MainTab:CreateParagraph({
+   Title = "📌 Egg Opening Information",
+   Content = "Opens the selected egg instantly.\n\nRequirements:\n• You must have enough /money\n• Inventory must have free space\n\nNotes:\n• No egg opening animation\n• Pet appears instantly\n• If requirements are not met, egg will not open."
+})
+
 ----------------------------------------------------
--- WORLD TELEPORT
+-- TELEPORT WORLDS
 ----------------------------------------------------
-
-local WorldNames = {
-   ["World 1"] = "World 1",
-   ["World 2 🔒 (Need Unlock)"] = "World 2"
-}
-
-local WorldOptions = {
-   "World 1",
-   "World 2 🔒 (Need Unlock)"
-}
-
-local SelectedWorld = "World 1"
 
 MainTab:CreateDropdown({
-   Name = "Select World",
-   Options = WorldOptions,
+   Name = "Teleport World",
+   Options = {
+   "World 1",
+   "World 2 (must be unlocked)"
+   },
    CurrentOption = {"World 1"},
    MultipleOptions = false,
    Callback = function(Option)
-      SelectedWorld = WorldNames[Option[1]]
-   end,
-})
 
-MainTab:CreateButton({
-   Name = "Teleport To World",
-   Callback = function()
+      local world = "World 1"
 
-      local args = {
-         [1] = SelectedWorld
-      }
+      if Option[1] == "World 2 (must be unlocked)" then
+         world = "World 2"
+      end
 
-      game:GetService("ReplicatedStorage")
-      .Modules.RbxNet.net._NetManaged.TeleportToWorld
-      :FireServer(unpack(args))
+      ReplicatedStorage.Modules.RbxNet.net._NetManaged.TeleportToWorld:FireServer(world)
 
       Rayfield:Notify({
          Title = "L1inb7 Hub",
-         Content = "Teleported to "..SelectedWorld,
+         Content = "Teleporting to "..world,
          Duration = 4
       })
 
    end,
 })
 
+MainTab:CreateParagraph({
+   Title = "📌 Teleport World Information",
+   Content = "Teleports you to another world.\n\nRequirements:\n• The world must be unlocked in the game\n\nNotes:\n• If the world is locked, teleport may fail."
+})
+
+----------------------------------------------------
+-- SPEED SYSTEM
+----------------------------------------------------
+
+getgenv().CustomSpeed = 50
+
+local PhysicsUtils = require(
+ReplicatedStorage.Modules.Util.PhysicsUtils
+)
+
+MainTab:CreateInput({
+   Name = "Set Speed (0 - 500)",
+   PlaceholderText = "Enter Speed...",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+
+      local num = tonumber(Text)
+
+      if num then
+         getgenv().CustomSpeed = math.clamp(num,0,500)
+
+         Rayfield:Notify({
+            Title = "L1inb7 Hub",
+            Content = "Speed set to "..getgenv().CustomSpeed,
+            Duration = 4
+         })
+      end
+
+   end,
+})
+
+MainTab:CreateParagraph({
+   Title = "📌 Speed Setting Information",
+   Content = "Changes your skateboard speed.\n\nRange:\n• Minimum: 0\n• Maximum: 500\n\nNotes:\n• Very high speed may cause loud skateboard sound\n• Extremely high speed may cause small lag or physics glitches."
+})
+
+RunService.RenderStepped:Connect(function()
+
+   local target = getgenv().CustomSpeed
+
+   if PhysicsUtils and PhysicsUtils.CurrentSpeed then
+      PhysicsUtils.CurrentSpeed =
+      PhysicsUtils.CurrentSpeed + (target - PhysicsUtils.CurrentSpeed) * 0.25
+   end
+
+   if PhysicsUtils and PhysicsUtils.BoardStats then
+      PhysicsUtils.BoardStats.MaxSpeed =
+      math.max(target, PhysicsUtils.BoardStats.MaxSpeed)
+   end
+
+end)
+
 ----------------------------------------------------
 -- MESSAGE TAB
 ----------------------------------------------------
 
-local MsgTab = Window:CreateTab("💬 Message", 4483362458)
+local MsgTab = Window:CreateTab("💬 Message", nil)
 
-MsgTab:CreateButton({
-   Name = "Ty for testing my scripts",
-   Callback = function()
-      Rayfield:Notify({
-         Title = "L1inb7 Hub",
-         Content = "Thanks for testing ❤️",
-         Duration = 5
-      })
-   end,
+MsgTab:CreateParagraph({
+   Title = "Creator",
+   Content = "Script created by L1inb7\nYouTube: L1inb7_Scriptss"
 })
 
 MsgTab:CreateButton({
-   Name = "My YT is L1inb7_Scriptss",
+   Name = "Copy YouTube Channel",
    Callback = function()
+
+      setclipboard("https://www.youtube.com/@L1inb7_Scriptss")
+
       Rayfield:Notify({
          Title = "L1inb7 Hub",
-         Content = "Subscribe on YouTube!",
-         Duration = 5
+         Content = "YouTube link copied!",
+         Duration = 4
       })
-   end,
-})----------------------------------------------------
--- MESSAGE TAB
-----------------------------------------------------
 
-local MsgTab = Window:CreateTab("💬 Message", 4483362458)
-
-MsgTab:CreateButton({
-   Name = "Ty for testing my scripts",
-   Callback = function()
-      Rayfield:Notify({
-         Title = "L1inb7 Hub",
-         Content = "Thanks for testing ❤️",
-         Duration = 5
-      })
    end,
 })
 
-MsgTab:CreateButton({
-   Name = "My YT is L1inb7_Scriptss",
-   Callback = function()
-      Rayfield:Notify({
-         Title = "L1inb7 Hub",
-         Content = "Subscribe on YouTube!",
-         Duration = 5
-      })
-   end,
+MsgTab:CreateParagraph({
+   Title = "📌 Information",
+   Content = "Press the button above to copy the creator's YouTube channel link."
 })
