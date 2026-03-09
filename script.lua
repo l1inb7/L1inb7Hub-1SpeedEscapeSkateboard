@@ -224,14 +224,14 @@ local MsgTab = Window:CreateTab("💬 Message", nil)
 
 MsgTab:CreateParagraph({
    Title = "Creator",
-   Content = "Script created by L1inb7\nYouTube: L1inb7_Scriptss"
+   Content = "Script created by l1inb7\nYouTube: l1inb7_scriptss"
 })
 
 MsgTab:CreateButton({
    Name = "Copy YouTube Channel",
    Callback = function()
 
-      setclipboard("https://www.youtube.com/@L1inb7_Scriptss")
+      setclipboard("https://www.youtube.com/@l1inb7_scriptss")
 
       Rayfield:Notify({
          Title = "L1inb7 Hub",
