@@ -46,7 +46,7 @@ MainTab:CreateToggle({
 })
 
 MainTab:CreateParagraph({
-   Title = "📌 Auto Win Information",
+   Title = "🎲 Auto Win Information",
    Content = "Automatically claims wins.\n\nRequirements:\n• You must be in the game\n• Internet connection must be stable\n\nNotes:\n• Works in the background\n• Can be toggled on/off anytime."
 })
 
@@ -93,7 +93,7 @@ MainTab:CreateDropdown({
 })
 
 MainTab:CreateParagraph({
-   Title = "📌 Equip Skateboard Information",
+   Title = "🎲 Equip Skateboard Information",
    Content = "Equips the selected skateboard instantly."
 })
 
@@ -124,7 +124,7 @@ MainTab:CreateDropdown({
 })
 
 MainTab:CreateParagraph({
-   Title = "📌 Egg Opening Information",
+   Title = "🎲 Egg Opening Information",
    Content = "Opens the selected egg instantly.\n\nRequirements:\n• You must have enough /money\n• Inventory must have free space\n\nNotes:\n• No egg opening animation\n• Pet appears instantly\n• If requirements are not met, egg will not open."
 })
 
@@ -160,7 +160,7 @@ MainTab:CreateDropdown({
 })
 
 MainTab:CreateParagraph({
-   Title = "📌 Teleport World Information",
+   Title = "🎲 Teleport World Information",
    Content = "Teleports you to another world.\n\nRequirements:\n• The world must be unlocked in the game\n\nNotes:\n• If the world is locked, teleport may fail."
 })
 
@@ -196,7 +196,7 @@ MainTab:CreateInput({
 })
 
 MainTab:CreateParagraph({
-   Title = "📌 Speed Setting Information",
+   Title = "🎲 Speed Setting Information",
    Content = "Changes your skateboard speed.\n\nRange:\n• Minimum: 0\n• Maximum: 500\n\nNotes:\n• Very high speed may cause loud skateboard sound\n• Extremely high speed may cause small lag or physics glitches."
 })
 
@@ -220,14 +220,14 @@ end)
 -- MESSAGE TAB
 ----------------------------------------------------
 
-local MsgTab = Window:CreateTab("💬 Message", nil)
+local InfoTab = Window:CreateTab("🎲 Info", nil)
 
-MsgTab:CreateParagraph({
+InfoTab:CreateParagraph({
    Title = "Creator",
    Content = "Script created by l1inb7\nYouTube: l1inb7_scriptss"
 })
 
-MsgTab:CreateButton({
+InfoTab:CreateButton({
    Name = "Copy YouTube Channel",
    Callback = function()
 
@@ -242,7 +242,17 @@ MsgTab:CreateButton({
    end,
 })
 
-MsgTab:CreateParagraph({
-   Title = "📌 Information",
+Info:CreateParagraph({
+   Title = "🎲 Information",
    Content = "Press the button above to copy the creator's YouTube channel link."
+})
+
+Info:CreateParagraph({
+   Title = "🎲 Script Version",
+   Content = "v1.1"
+})
+
+Info:CreateParagraph({
+   Title = "🎲 Message from L1inb7",
+   Content = "I just found that you can equip deleted/unobtainable skateboards! I must add them in v1.2!"
 })
