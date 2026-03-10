@@ -2,6 +2,34 @@ repeat task.wait() until game:IsLoaded()
 
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
+Rayfield:SetTheme({
+    Background = Color3.fromRGB(35,15,60),
+    Topbar = Color3.fromRGB(55,20,95),
+    Shadow = Color3.fromRGB(25,10,45),
+
+    TextColor = Color3.fromRGB(255,255,255),
+
+    TabBackground = Color3.fromRGB(45,20,80),
+    TabBackgroundSelected = Color3.fromRGB(95,45,150),
+    TabTextColor = Color3.fromRGB(200,200,200),
+    SelectedTabTextColor = Color3.fromRGB(255,255,255),
+
+    ElementBackground = Color3.fromRGB(65,30,110),
+    ElementBackgroundHover = Color3.fromRGB(85,40,140),
+    SecondaryElementBackground = Color3.fromRGB(55,25,95),
+
+    ElementStroke = Color3.fromRGB(120,70,200),
+    SecondaryElementStroke = Color3.fromRGB(120,70,200),
+
+    SliderBackground = Color3.fromRGB(100,50,180),
+    SliderProgress = Color3.fromRGB(170,90,255),
+    SliderStroke = Color3.fromRGB(130,70,200),
+
+    ToggleBackground = Color3.fromRGB(70,30,120),
+    ToggleEnabled = Color3.fromRGB(180,90,255),
+    ToggleDisabled = Color3.fromRGB(50,20,90)
+})
+
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
