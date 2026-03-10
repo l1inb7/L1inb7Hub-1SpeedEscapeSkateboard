@@ -11,7 +11,7 @@ local player = Players.LocalPlayer
 local Window = Rayfield:CreateWindow({
    Name = "🛹 +1 Speed Escape Skateboard [OP & FREE]",
    LoadingTitle = "🎲 L1inb7 Hub",
-   LoadingSubtitle = "by L1inb7",
+   LoadingSubtitle = "by l1inb7",
    ConfigurationSaving = {
       Enabled = false,
       FileName = "L1inb7Hub"
@@ -23,7 +23,7 @@ local Window = Rayfield:CreateWindow({
 -- MAIN TAB
 ----------------------------------------------------
 
-local MainTab = Window:CreateTab("🎲 Main", nil)
+local MainTab = Window:CreateTab("🏠 Main", nil)
 
 Rayfield:Notify({
    Title = "You executed the script",
@@ -175,7 +175,7 @@ ReplicatedStorage.Modules.Util.PhysicsUtils
 )
 
 MainTab:CreateInput({
-   Name = "Set Speed (0 - 500)",
+   Name = "Set Speed (0 - 1000)",
    PlaceholderText = "Enter Speed...",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
@@ -183,7 +183,7 @@ MainTab:CreateInput({
       local num = tonumber(Text)
 
       if num then
-         getgenv().CustomSpeed = math.clamp(num,0,500)
+         getgenv().CustomSpeed = math.clamp(num,0,1000)
 
          Rayfield:Notify({
             Title = "L1inb7 Hub",
@@ -197,7 +197,7 @@ MainTab:CreateInput({
 
 MainTab:CreateParagraph({
    Title = "🎲 Speed Setting Information",
-   Content = "Changes your skateboard speed.\n\nRange:\n• Minimum: 0\n• Maximum: 500\n\nNotes:\n• Very high speed may cause loud skateboard sound\n• Extremely high speed may cause small lag or physics glitches."
+   Content = "Changes your skateboard speed.\n\nRange:\n• Minimum: 0\n• Maximum: 1000\n\nNotes:\n• Very high speed may cause loud skateboard sound\n• Extremely high speed may cause small lag or physics glitches."
 })
 
 RunService.RenderStepped:Connect(function()
@@ -223,8 +223,8 @@ end)
 local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
-   Title = "🎲 Creator",
-   Content = "Script created by l1inb7\nYouTube: l1inb7_scriptss"
+   Title = "🎲 Information",
+   Content = "\n‼️ Script Version\nv1.1\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nI just found that you can equip skateboards which cannot be obtained anymore! I must add them in v1.2!"
 })
 
 InfoTab:CreateButton({
@@ -240,19 +240,4 @@ InfoTab:CreateButton({
       })
 
    end,
-})
-
-Info:CreateParagraph({
-   Title = "🎲 Information",
-   Content = "Press the button above to copy the creator's YouTube channel link."
-})
-
-Info:CreateParagraph({
-   Title = "🎲 Script Version",
-   Content = "v1.1"
-})
-
-Info:CreateParagraph({
-   Title = "🎲 Message from L1inb7",
-   Content = "I just found that you can equip deleted/unobtainable skateboards! I must add them in v1.2!"
 })
