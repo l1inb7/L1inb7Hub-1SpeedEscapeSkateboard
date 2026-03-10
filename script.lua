@@ -19,8 +19,6 @@ local Window = Rayfield:CreateWindow({
    KeySystem = false
 })
 
-Window:ModifyTheme("Amethyst")
-
 ----------------------------------------------------
 -- MAIN TAB
 ----------------------------------------------------
