@@ -223,7 +223,7 @@ end)
 local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
-   Title = "Creator",
+   Title = "🎲 Creator",
    Content = "Script created by l1inb7\nYouTube: l1inb7_scriptss"
 })
 
