@@ -109,7 +109,7 @@ MainTab:CreateParagraph({
 MainTab:CreateDropdown({
    Name = "Open Egg",
    Options = {
-   "Egg1 (100$)","Egg2 (500$)","Egg3 (1K$)","Egg4 (10K$)"
+   "Egg1 (100$)","Egg2 (500$)","Egg3 (1K$)","Egg4 (10K$)", "Egg5 (20K$)", "Egg6 (100K$)"
    },
    CurrentOption = {"Egg1 (100$)"},
    MultipleOptions = false,
@@ -229,7 +229,7 @@ local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "\n‼️ Script Version\nv1.21\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nwhats new: added unobtainable skateboards (they come after northern star), you can change speed up to 5k and some changes\nAfter I released the update, I noticed that you can get into the third world and even open eggs from there! Wait for v1.3 release!"
+   Content = "\n‼️ Script Version\nv1.23\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nwhats new: added unobtainable skateboards (they come after northern star), you can change speed up to 5k and some changes\nAfter I released the update, I noticed that you can get into the third world and even open eggs from there! Wait for v1.3 release!\np.s I have added new eggs!"
 })
 
 InfoTab:CreateButton({
