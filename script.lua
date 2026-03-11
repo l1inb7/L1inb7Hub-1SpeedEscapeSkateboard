@@ -12,6 +12,7 @@ local Window = Rayfield:CreateWindow({
    Name = "🛹 +1 Speed Escape Skateboard [BEST & FREE]",
    LoadingTitle = "🎲 L1inb7 Hub",
    LoadingSubtitle = "by l1inb7",
+   Theme = " Amethyst",
    ConfigurationSaving = {
       Enabled = false,
       FileName = "L1inb7Hub"
