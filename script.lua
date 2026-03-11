@@ -9,7 +9,7 @@ local RunService = game:GetService("RunService")
 local player = Players.LocalPlayer
 
 local Window = Rayfield:CreateWindow({
-   Name = "🛹 +1 Speed Escape Skateboard [OP & FREE]",
+   Name = "🛹 +1 Speed Escape Skateboard [BEST & FREE]",
    LoadingTitle = "🎲 L1inb7 Hub",
    LoadingSubtitle = "by l1inb7",
    ConfigurationSaving = {
@@ -228,7 +228,7 @@ local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "\n‼️ Script Version\nv1.2\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nwhats new: added unobtainable skateboards (they come after northern star), you can change speed up to 5k and some changes"
+   Content = "\n‼️ Script Version\nv1.21\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nwhats new: added unobtainable skateboards (they come after northern star), you can change speed up to 5k and some changes\nAfter I released the update, I noticed that you can get into the third world and even open eggs from there! Wait for v1.3 release!"
 })
 
 InfoTab:CreateButton({
