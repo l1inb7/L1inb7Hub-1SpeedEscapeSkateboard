@@ -38,7 +38,7 @@ Rayfield:Notify({
 local autowin = false
 
 MainTab:CreateToggle({
-   Name = "Auto Win",
+   Name = "Auto Farm Wins & Money",
    CurrentValue = false,
    Callback = function(Value)
       autowin = Value
@@ -46,8 +46,8 @@ MainTab:CreateToggle({
 })
 
 MainTab:CreateParagraph({
-   Title = "🎲 Auto Win Information",
-   Content = "Automatically claims wins.\n\nRequirements:\n• You must be in the game\n• Internet connection must be stable\n\nNotes:\n• Works in the background\n• Can be toggled on/off anytime."
+   Title = "🎲 Information",
+   Content = "• Automatically farm wins and money.\n• You can be kicked from the game for afk for 20 minutes!"
 })
 
 task.spawn(function()
@@ -75,7 +75,11 @@ MainTab:CreateDropdown({
    Options = {
    "Basic","Blossom","Tiger","Tropical","Golden","Snowy",
    "Blue Ripstick","Blue Prism","Rainbow Cloud","Golden Ripstick",
-   "VIP","Rover","Cyber","Shark","Bat","Rocket","Red Ufo","Northern Star"
+   "VIP","Rover","Cyber","Shark","Bat","Rocket","Red Ufo","Northern Star","Abstract","Doodle","Cabin","Purple Prism","Hardware",
+"Red Ripstick","White Surf Board","Like Board","Checkers","RainbowSwirl",
+"Orange Surf Board","Floral","Red Surf Board","Blackbird","Polar",
+"White Snowboard","Snowflake","Autumn Leaf","Turkey Leg",
+"Spring Egg","Sky Blue Egg","Mushroom Egg","Galaxy Egg","The Hatch Egg"
    },
    CurrentOption = {"Basic"},
    MultipleOptions = false,
@@ -93,8 +97,8 @@ MainTab:CreateDropdown({
 })
 
 MainTab:CreateParagraph({
-   Title = "🎲 Equip Skateboard Information",
-   Content = "Equips the selected skateboard instantly."
+   Title = "🎲 Information",
+   Content = "• Equip selected skateboard instantly and absolutely free!"
 })
 
 ----------------------------------------------------
@@ -104,9 +108,9 @@ MainTab:CreateParagraph({
 MainTab:CreateDropdown({
    Name = "Open Egg",
    Options = {
-   "Egg1 (100)","Egg2 (500)","Egg3 (1K)","Egg4 (10K)"
+   "Egg1 (100$)","Egg2 (500$)","Egg3 (1K$)","Egg4 (10K$)"
    },
-   CurrentOption = {"Egg1 (100)"},
+   CurrentOption = {"Egg1 (100$)"},
    MultipleOptions = false,
    Callback = function(Option)
 
@@ -124,8 +128,8 @@ MainTab:CreateDropdown({
 })
 
 MainTab:CreateParagraph({
-   Title = "🎲 Egg Opening Information",
-   Content = "Opens the selected egg instantly.\n\nRequirements:\n• You must have enough /money\n• Inventory must have free space\n\nNotes:\n• No egg opening animation\n• Pet appears instantly\n• If requirements are not met, egg will not open."
+   Title = "🎲 Information",
+   Content = "• You must have enough money\n• Inventory must have free space!"
 })
 
 ----------------------------------------------------
@@ -160,8 +164,8 @@ MainTab:CreateDropdown({
 })
 
 MainTab:CreateParagraph({
-   Title = "🎲 Teleport World Information",
-   Content = "Teleports you to another world.\n\nRequirements:\n• The world must be unlocked in the game\n\nNotes:\n• If the world is locked, teleport may fail."
+   Title = "🎲 Information",
+   Content = "• The world must be unlocked in the game or teleport will fail."
 })
 
 ----------------------------------------------------
@@ -175,7 +179,7 @@ ReplicatedStorage.Modules.Util.PhysicsUtils
 )
 
 MainTab:CreateInput({
-   Name = "Set Speed (0 - 1000)",
+   Name = "Set Speed (0 - 5000)",
    PlaceholderText = "Enter Speed...",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
@@ -183,7 +187,7 @@ MainTab:CreateInput({
       local num = tonumber(Text)
 
       if num then
-         getgenv().CustomSpeed = math.clamp(num,0,1000)
+         getgenv().CustomSpeed = math.clamp(num,0,5000)
 
          Rayfield:Notify({
             Title = "L1inb7 Hub",
@@ -196,8 +200,8 @@ MainTab:CreateInput({
 })
 
 MainTab:CreateParagraph({
-   Title = "🎲 Speed Setting Information",
-   Content = "Changes your skateboard speed.\n\nRange:\n• Minimum: 0\n• Maximum: 1000\n\nNotes:\n• Very high speed may cause loud skateboard sound\n• Extremely high speed may cause small lag or physics glitches."
+   Title = "🎲 Information",
+   Content = "• Changes your speed.\n• Extremely high speed will cause loud skateboard sound and physics glitches, also its very laggy"
 })
 
 RunService.RenderStepped:Connect(function()
@@ -224,7 +228,7 @@ local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "\n‼️ Script Version\nv1.1\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nI just found that you can equip skateboards which cannot be obtained anymore! I must add them in v1.2!"
+   Content = "\n‼️ Script Version\nv1.2\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nwhats new: added unobtainable skateboards (they come after northern star), you can change speed up to 5k and some changes"
 })
 
 InfoTab:CreateButton({
