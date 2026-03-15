@@ -52,19 +52,19 @@ MainTab:CreateParagraph({
 })
 
 task.spawn(function()
-   while true do
-      if autowin then
-
-         local args = {
-            [1] = "Free",
-            [2] = Vector3.new(9914.46875, 6.3058, -5766.1577)
-         }
-
-         ReplicatedStorage.Remote.Event.Player.ClaimWins:FireServer(unpack(args))
-      end
-
-      task.wait(1)
-   end
+    while gui.Parent do
+        if E.farm then
+            for _, obj in ipairs(CS:GetTagged("WinGiver")) do
+                if not E.farm then break end
+                if obj.Parent then
+                    pcall(function() CW:FireServer("Free", obj:GetPivot().Position) end)
+                end
+            end
+            task.wait(1)
+        else
+            task.wait(0.5)
+        end
+    end
 end)
 
 ----------------------------------------------------
