@@ -51,24 +51,21 @@ MainTab:CreateParagraph({
    Content = "• Automatically farm wins and money.\n• You can be kicked from the game for afk for 20 minutes!"
 })
 
-local CW = game:GetService("ReplicatedStorage").Remote.Event.Player.ClaimWins
-local CS = game:GetService("CollectionService")
-
--- Цикл фарма
 task.spawn(function()
-    while task.wait(1) do -- Задержка 1 секунда, чтобы не кикнуло
-        -- Ищем все финиши с тегом WinGiver
-        for _, obj in ipairs(CS:GetTagged("WinGiver")) do
-            if obj.Parent then
-                -- Отправляем сигнал на сервер, что мы "коснулись" финиша
-                pcall(function() 
-                    CW:FireServer("Free", obj:GetPivot().Position) 
-                end)
-            end
-        end
-    end
-end)
+   while true do
+      if autowin then
 
+         local args = {
+            [1] = "Free",
+            [2] = Vector3.new(9914.46875, 6.3058, -5766.1577)
+         }
+
+         ReplicatedStorage.Remote.Event.Player.ClaimWins:FireServer(unpack(args))
+      end
+
+      task.wait(1)
+   end
+end)
 
 ----------------------------------------------------
 -- EQUIP SKATEBOARD
