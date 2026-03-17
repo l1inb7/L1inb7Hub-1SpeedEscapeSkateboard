@@ -154,7 +154,7 @@ MainTab:CreateDropdown({
          world = "World 2"
       end
 
-      if Option[1] == "World 3 (must be unlocked)" then
+      if Option[2] == "World 3 (must be unlocked)" then
          world = "World 3"
       end
 
