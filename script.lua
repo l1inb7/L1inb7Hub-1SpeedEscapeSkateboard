@@ -142,6 +142,7 @@ MainTab:CreateDropdown({
    Options = {
    "World 1",
    "World 2 (must be unlocked)"
+   "World 3 (must be unlocked)"
    },
    CurrentOption = {"World 1"},
    MultipleOptions = false,
@@ -151,6 +152,10 @@ MainTab:CreateDropdown({
 
       if Option[1] == "World 2 (must be unlocked)" then
          world = "World 2"
+      end
+
+      if Option[1] == "World 3 (must be unlocked)" then
+         world = "World 3"
       end
 
       ReplicatedStorage.Modules.RbxNet.net._NetManaged.TeleportToWorld:FireServer(world)
@@ -166,7 +171,7 @@ MainTab:CreateDropdown({
 
 MainTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "• The world must be unlocked in the game or teleport will fail."
+   Content = "• The world must be unlocked in the game or teleport will fail.\n• I don't think that World 3 is working but you need 10 rebirths to unlock"
 })
 
 ----------------------------------------------------
@@ -229,7 +234,7 @@ local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "\n‼️ Script Version\nv1.23\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\nwhats new: added unobtainable skateboards (they come after northern star), you can change speed up to 5k and some changes\nAfter I released the update, I noticed that you can get into the third world and even open eggs from there! Wait for v1.3 release!\np.s I have added new eggs!"
+   Content = "\n‼️ Script Version\nv1.3\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\ni must stop working on this script. sorry but this is last update"
 })
 
 InfoTab:CreateButton({
