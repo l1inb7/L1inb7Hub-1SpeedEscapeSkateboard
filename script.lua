@@ -229,7 +229,7 @@ local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "\n‼️ Script Version\nv1.3\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss\n\n💬 Message From l1inb7\ni must stop working on this script. sorry but this is last update"
+   Content = "\n‼️ Script Version\nv1.3\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss"
 })
 
 InfoTab:CreateButton({
