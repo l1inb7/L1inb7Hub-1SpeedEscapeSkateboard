@@ -142,7 +142,6 @@ MainTab:CreateDropdown({
    Options = {
    "World 1",
    "World 2 (must be unlocked)"
-   "World 3 (must be unlocked)"
    },
    CurrentOption = {"World 1"},
    MultipleOptions = false,
@@ -152,10 +151,6 @@ MainTab:CreateDropdown({
 
       if Option[1] == "World 2 (must be unlocked)" then
          world = "World 2"
-      end
-
-      if Option[2] == "World 3 (must be unlocked)" then
-         world = "World 3"
       end
 
       ReplicatedStorage.Modules.RbxNet.net._NetManaged.TeleportToWorld:FireServer(world)
@@ -171,7 +166,7 @@ MainTab:CreateDropdown({
 
 MainTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "• The world must be unlocked in the game or teleport will fail.\n• I don't think that World 3 is working but you need 10 rebirths to unlock"
+   Content = "• The world must be unlocked in the game or teleport will fail.\n• World 3 is not working"
 })
 
 ----------------------------------------------------
