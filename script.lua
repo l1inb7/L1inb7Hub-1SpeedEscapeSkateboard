@@ -9,6 +9,9 @@ end)
 
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
+
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
@@ -232,11 +235,18 @@ end)
 -- MESSAGE TAB
 ----------------------------------------------------
 
-local InfoTab = Window:CreateTab("🎲 Info", nil)
+local InfoTab = Window:CreateTab("🎲 Feedback & Info", nil)
+
+InfoTab:CreateButton({
+    Name = "Click here to write feedback!",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/l1inb7/L1inb7FeedBack/refs/heads/main/feedback.lua"))()
+    end,
+})
 
 InfoTab:CreateParagraph({
    Title = "🎲 Information",
-   Content = "\n‼️ Script Version\nv1.4\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss"
+   Content = "\n‼️ Script Version\nv1.5\n\n‼️ Script created by l1inb7\nYouTube: l1inb7_scriptss"
 })
 
 InfoTab:CreateButton({
