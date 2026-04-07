@@ -233,13 +233,13 @@ InfoTab:CreateButton({
 
 InfoTab:CreateParagraph({
     Title = "🎲 Information",
-    Content = "\n‼ Script Version: v2.0\n\n‼ Created by l1inb7\nYouTube: l1inb7_scriptss"
+    Content = "\n‼ Script Version: v2.0\n\n‼ Created by l1inb7\nYouTube: l1inb7_scripts"
 })
 
 InfoTab:CreateButton({
     Name = "Copy YouTube Channel",
     Callback = function()
-        setclipboard("https://www.youtube.com/@l1inb7_scriptss")
+        setclipboard("https://www.youtube.com/@l1inb7_scripts")
         Rayfield:Notify({
             Title = "L1inb7 Hub",
             Content = "YouTube link copied!",
